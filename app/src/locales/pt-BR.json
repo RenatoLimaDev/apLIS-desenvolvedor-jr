@@ -1,0 +1,54 @@
+{
+  "app": {
+    "title": "apLIS"
+  },
+  "sidebar": {
+    "medicos": "Médicos",
+    "pacientes": "Pacientes"
+  },
+  "language": {
+    "label": "Idioma",
+    "ptBR": "Português",
+    "en": "Inglês"
+  },
+  "actions": {
+    "new": "Novo",
+    "edit": "Editar",
+    "delete": "Excluir",
+    "save": "Salvar",
+    "cancel": "Cancelar",
+    "actions": "Ações"
+  },
+  "messages": {
+    "loading": "Carregando...",
+    "empty": "Nenhum registro encontrado",
+    "confirmDelete": "Tem certeza que deseja excluir este registro?",
+    "genericError": "Ocorreu um erro. Tente novamente."
+  },
+  "medicos": {
+    "title": "Médicos",
+    "newTitle": "Novo médico",
+    "editTitle": "Editar médico",
+    "fields": {
+      "nome": "Nome",
+      "crm": "CRM",
+      "ufcrm": "UF do CRM"
+    }
+  },
+  "pacientes": {
+    "title": "Pacientes",
+    "newTitle": "Novo paciente",
+    "editTitle": "Editar paciente",
+    "fields": {
+      "nome": "Nome",
+      "dataNascimento": "Data de nascimento",
+      "carteirinha": "Carteirinha",
+      "cpf": "CPF"
+    }
+  },
+  "validation": {
+    "required": "Campo obrigatório",
+    "cpfLength": "O CPF deve ter 11 dígitos",
+    "ufLength": "A UF deve ter 2 letras"
+  }
+}

@@ -1,15 +1,23 @@
 {
   "name": "backendjs",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "Backend Node do teste apLIS - CRUD de pacientes",
+  "type": "module",
+  "main": "src/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "test": "vitest run"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
   "dependencies": {
-    "express": "^5.2.1"
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^5.2.1",
+    "mysql2": "^3.11.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7",
+    "supertest": "^7.0.0",
+    "vitest": "^2.1.4"
   }
 }

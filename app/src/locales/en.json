@@ -1,0 +1,54 @@
+{
+  "app": {
+    "title": "apLIS"
+  },
+  "sidebar": {
+    "medicos": "Doctors",
+    "pacientes": "Patients"
+  },
+  "language": {
+    "label": "Language",
+    "ptBR": "Portuguese",
+    "en": "English"
+  },
+  "actions": {
+    "new": "New",
+    "edit": "Edit",
+    "delete": "Delete",
+    "save": "Save",
+    "cancel": "Cancel",
+    "actions": "Actions"
+  },
+  "messages": {
+    "loading": "Loading...",
+    "empty": "No records found",
+    "confirmDelete": "Are you sure you want to delete this record?",
+    "genericError": "Something went wrong. Please try again."
+  },
+  "medicos": {
+    "title": "Doctors",
+    "newTitle": "New doctor",
+    "editTitle": "Edit doctor",
+    "fields": {
+      "nome": "Name",
+      "crm": "CRM",
+      "ufcrm": "CRM State"
+    }
+  },
+  "pacientes": {
+    "title": "Patients",
+    "newTitle": "New patient",
+    "editTitle": "Edit patient",
+    "fields": {
+      "nome": "Name",
+      "dataNascimento": "Birth date",
+      "carteirinha": "Card number",
+      "cpf": "CPF"
+    }
+  },
+  "validation": {
+    "required": "Required field",
+    "cpfLength": "CPF must have 11 digits",
+    "ufLength": "State must have 2 letters"
+  }
+}
