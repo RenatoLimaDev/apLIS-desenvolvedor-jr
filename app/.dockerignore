@@ -1,0 +1,6 @@
+node_modules/
+.env
+dist/
+coverage/
+src/__tests__/
+src/test/

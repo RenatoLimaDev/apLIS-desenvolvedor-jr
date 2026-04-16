@@ -14,30 +14,53 @@ Aplicação fullstack com:
 
 ```
 .
-├── docker-compose.yml        # Serviço MySQL 8 compartilhado
+├── docker-compose.yml        # Sobe MySQL + PHP + Node + Frontend
 ├── db/init.sql               # Schema e seeds iniciais
 ├── backendphp/               # API PHP — /api/v1/medicos
 ├── backendjs/                # API Node — /api/v1/pacientes
 └── app/                      # Frontend React
 ```
 
-## Pré-requisitos
+## Executando com Docker (recomendado)
 
-- Docker e Docker Compose
+O jeito mais rápido: um único comando sobe tudo.
+
+**Pré-requisito:** Docker e Docker Compose instalados.
+
+```bash
+docker compose up --build
+```
+
+Aguarde todos os serviços ficarem prontos e abra [http://localhost](http://localhost).
+
+| Serviço     | URL                         |
+| ----------- | --------------------------- |
+| Frontend    | http://localhost             |
+| Backend PHP | http://localhost:8000/api/v1 |
+| Backend Node| http://localhost:3000/api/v1 |
+| MySQL       | localhost:3306               |
+
+Para parar: `docker compose down`.
+
+Para limpar o volume do banco e resetar os dados: `docker compose down -v`.
+
+## Executando manualmente (alternativa)
+
+Caso prefira rodar sem Docker, são necessários:
+
 - PHP 8.3+ e Composer
 - Node.js 20+ e npm
-
-## Subindo o projeto
+- MySQL 8 rodando localmente (ou via `docker compose up mysql -d` apenas para o banco)
 
 Em **4 terminais**, na raiz do repositório:
 
-### 1. Banco de dados (MySQL via docker-compose)
+### 1. Banco de dados
 
 ```bash
-docker compose up -d
+docker compose up mysql -d
 ```
 
-O script `db/init.sql` é executado automaticamente na primeira inicialização, criando as tabelas `medicos` e `pacientes` e inserindo alguns registros de exemplo.
+O script `db/init.sql` é executado automaticamente na primeira inicialização, criando as tabelas `medicos` e `pacientes` e inserindo registros de exemplo.
 
 ### 2. Backend PHP (porta 8000)
 

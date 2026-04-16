@@ -11,6 +11,7 @@ use App\Exceptions\HttpException;
 require __DIR__ . '/../vendor/autoload.php';
 
 // Carrega variáveis do arquivo .env (se existir), sem depender de pacotes externos.
+// Em Docker as variáveis já estão disponíveis via getenv(); localmente vêm do .env.
 $envPath = __DIR__ . '/../.env';
 if (is_file($envPath)) {
     foreach (file($envPath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) as $line) {
@@ -19,12 +20,15 @@ if (is_file($envPath)) {
             continue;
         }
         [$key, $value] = array_pad(explode('=', $line, 2), 2, '');
-        $_ENV[trim($key)] = trim($value);
+        $key = trim($key);
+        $value = trim($value);
+        $_ENV[$key] = $value;
+        putenv("{$key}={$value}");
     }
 }
 
 // CORS — libera o frontend durante o desenvolvimento.
-$origin = $_ENV['CORS_ORIGIN'] ?? 'http://localhost:5173';
+$origin = getenv('CORS_ORIGIN') ?: 'http://localhost:5173';
 header('Access-Control-Allow-Origin: ' . $origin);
 header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type, Accept');

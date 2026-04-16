@@ -22,11 +22,11 @@ final class Database
             return self::$connection;
         }
 
-        $host = $_ENV['DB_HOST'] ?? '127.0.0.1';
-        $port = $_ENV['DB_PORT'] ?? '3306';
-        $name = $_ENV['DB_NAME'] ?? 'aplis';
-        $user = $_ENV['DB_USER'] ?? 'aplis';
-        $pass = $_ENV['DB_PASS'] ?? 'aplis';
+        $host = getenv('DB_HOST') ?: '127.0.0.1';
+        $port = getenv('DB_PORT') ?: '3306';
+        $name = getenv('DB_NAME') ?: 'aplis';
+        $user = getenv('DB_USER') ?: 'aplis';
+        $pass = getenv('DB_PASS') ?: 'aplis';
 
         $dsn = sprintf('mysql:host=%s;port=%s;dbname=%s;charset=utf8mb4', $host, $port, $name);
 

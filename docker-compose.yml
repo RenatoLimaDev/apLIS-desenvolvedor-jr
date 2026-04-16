@@ -19,5 +19,50 @@ services:
       timeout: 5s
       retries: 10
 
+  backendphp:
+    build: ./backendphp
+    container_name: aplis-backendphp
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      DB_HOST: mysql
+      DB_PORT: "3306"
+      DB_NAME: aplis
+      DB_USER: aplis
+      DB_PASS: aplis
+      CORS_ORIGIN: "http://localhost"
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+  backendjs:
+    build: ./backendjs
+    container_name: aplis-backendjs
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      PORT: "3000"
+      DB_HOST: mysql
+      DB_PORT: "3306"
+      DB_NAME: aplis
+      DB_USER: aplis
+      DB_PASS: aplis
+      CORS_ORIGIN: "http://localhost"
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+  frontend:
+    build: ./app
+    container_name: aplis-frontend
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    depends_on:
+      - backendphp
+      - backendjs
+
 volumes:
   aplis-mysql-data:
